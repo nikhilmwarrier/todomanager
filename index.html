@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script src="app.js" defer></script>
+    <title>TodoManager</title>
+  </head>
+  <body>
+    <main>
+      <h1>TodoManager</h1>
+      <div class="new-todo">
+        <form class="new-todo-form">
+          <input
+            type="text"
+            placeholder="Todo..."
+            class="new-todo-form-input"
+          />
+          <button type="submit" class="submit">Add</button>
+        </form>
+      </div>
+      <div class="todo-container"></div>
+      <button class="clear-all" onclick="clearAllTodos()">Clear All</button>
+    </main>
+  </body>
+</html>

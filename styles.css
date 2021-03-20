@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgb(143, 85, 20);
+  background: linear-gradient(
+    103deg,
+    rgba(143, 85, 20, 1) 0%,
+    rgba(154, 49, 49, 1) 20%,
+    rgba(148, 0, 132, 1) 36%,
+    rgba(0, 206, 255, 1) 100%
+  );
+}
+
+main {
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 30px;
+  margin: 20px auto;
+  max-height: calc(100vh - 40px);
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: "Pangolin", cursive;
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 6rem;
+  color: rgb(65, 141, 255);
+  text-align: center;
+}
+
+.new-todo-form-input {
+  border: 2px solid #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.1s;
+  color: #333;
+}
+
+.new-todo-form-input:focus {
+  outline: none;
+  border-color: rgb(65, 141, 255);
+}
+
+.submit,
+.clear-all {
+  border: 2px solid rgb(65, 141, 255);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  background: rgb(65, 141, 255);
+  transition: all 0.1s;
+}
+
+.submit:hover,
+.clear-all:hover {
+  box-shadow: 0px 1px 3px rgba(105, 105, 105, 0.5);
+}
+
+.submit:active,
+.clear-all:active {
+  transform: scale(0.9);
+  box-shadow: none;
+}
+
+.todo-container {
+  overflow-y: auto;
+  max-height: calc(100% - 150px);
+  height: 100%;
+  position: relative;
+  margin-top: 10px;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(65, 141, 255);
+  border-radius: 5px;
+}
+
+.clear-all {
+  position: absolute;
+  bottom: 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.todo-item {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  line-height: 2rem;
+  border-top: 1px solid transparent;
+  transition: all 0.5s;
+  animation: dropdown 0.2s ease;
+  display: grid;
+  grid-template-columns: 1fr 15px;
+  grid-template-areas: "todo delete";
+  transform-origin: 0% 0%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.todo-item:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+.todo-item:first-of-type {
+  margin-top: 0px;
+  border-top: none;
+}
+
+.todo-item:last-of-type {
+  border-bottom: 1px solid transparent;
+}
+
+.todo-checkbox {
+  grid-area: checkbox;
+}
+
+.todo {
+  grid-area: todo;
+  padding: 0 10px;
+}
+
+.delete-todo {
+  cursor: pointer;
+  background-color: transparent;
+  color: red;
+  border: none;
+  font-size: 1.5rem;
+  font-family: "Pangolin", cursive;
+  grid-area: delete;
+}
+
+.todo-checkbox:checked + .todo {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+@keyframes dropdown {
+  from {
+    transform: translateY(-10px);
+  }
+}
